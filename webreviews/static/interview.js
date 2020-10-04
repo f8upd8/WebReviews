@@ -1,7 +1,21 @@
 // Глобальная переменная для блоба
 var recordedVideo;
+var time_codes = {}
+var questions = {};
 
 window.onload = function() {
+
+    questions_json = document.getElementById('questions').textContent;
+
+    console.log(questions_json)
+
+    entries = Object.entries(JSON.parse(questions_json))
+
+    entries.forEach(function (item, index) {
+        questions[index.toString()] = item[1];
+    });
+
+    console.log(questions)
 
     let preview = document.getElementById("preview");
     let recording = document.getElementById("recording");
@@ -208,16 +222,6 @@ window.onload = function() {
 
     let nextButton = document.getElementById("nextButton");
     let testP = document.getElementById('testP');
-
-    var questions = {
-        0: 'Вопрос первый',
-        1: 'Вопрос второй',
-        2: 'Вопрос третий'
-    };
-
-    var time_codes = {
-        0: '0:00'
-    }
 
     let indexQuestions=0;
     let timeIsOn=true;

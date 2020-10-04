@@ -1,12 +1,15 @@
-{% extends base %}
+{% extends "base.html" %}
 {% block head %} 
     {% block title %}Interview - {{ self.interviewName }} {% endblock %}
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='interview.css') }}">
     <script src="{{ url_for('static', filename='audiolevel.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='audiolevel.css') }}">
-    <script src="{{ url_for('static', filename='inerview.js') }}"></script>
+    <script src="{{ url_for('static', filename='interview.js') }}"></script>
     <script src="{{ url_for('static', filename='jquery-git.js') }}"></script>
+    <script type=”application/json” id="questions">
+    {{ json | safe}}
+    </script>
 {% endblock %}
 {% block content %}
     <div class="blockGlobal">
