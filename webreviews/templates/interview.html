@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <script src="audioLeve.js"></script>
+    <link rel="stylesheet" href="audioLevel.css">
+    <script src="Sript.js"></script>
+    <script src="jquery-git.js"></script>
+
+
+</head>
+<body>
+<div class="blockGlobal">
+
+<br>
+<div class="up">
+ <div class="block">
+    <div class="text">Selected video:</div>
+<select id="select"><option value="">Список устройств пуст.</option></select>
+    <div class="text">Selected audio:</div>
+<select id="selectAudio"><option value="">Список устройств пуст.</option></select>
+ </div>
+
+    <div class="block">
+<div class="level-monitor">
+    <div class="indicator"></div>
+</div>
+<div class="percent"></div>
+    </div>
+</div>
+
+<div class="down">
+<div class="left">
+    <div id="startButton" class="button">Начать запись</div>
+    <div id="testButton" class="button">Тест</div>
+    <h2>Preview</h2>
+    <video id="preview" width="160" height="120" autoplay muted></video>
+
+</div>
+
+<div class="right">
+    <div id="stopButton" class="button">
+        Стоп
+    </div>
+    <div id="downloadButton" class="button">
+        Скачать
+    </div>
+
+    <h2>Запись</h2>
+    <video id="recording" width="160" height="120" controls></video>
+
+    <div class="bottom">
+        <pre id="log"></pre>
+    </div>
+</div>
+</div>
+
+
+
+</div>
+
+<div class="blockGlobal">
+    <p id="testP" >Вопрос:_________</p>
+    <button  class="button" id="nextButton" data-action="time" >Следующий вопрос <span class="timer" data-content="time">0.0</span></button >
+
+</div>
+
+</body>
+</html>

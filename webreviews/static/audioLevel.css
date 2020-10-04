@@ -1,0 +1,42 @@
+:root {
+    --opacity: 0.6;
+    --radius: 0.2;
+    --red-limit: 80%;
+    --yellow-limit: 60%;
+}
+
+.level-monitor {
+
+    margin-right: 60px;
+    width: 40px;
+    height: 100px;
+    background-image: linear-gradient(
+        /* Red */
+            rgba(234, 68, 87, var(--opacity)) 0% calc(100% - var(--red-limit)),
+                /* Yellow */
+            rgba(255, 205, 76, var(--opacity)) calc(100% - var(--red-limit)) calc(100% - var(--yellow-limit)),
+                /* Green */
+            rgba(151, 190, 97, var(--opacity)) calc(100% - var(--yellow-limit)) 100%
+    );
+    position: relative;
+    border-radius: var(--radius);
+}
+
+.indicator {
+    margin-right: 10px;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-attachment: fixed;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    border-radius: var(--radius);
+}
+
+.percent {
+    width: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px 0;
+}
