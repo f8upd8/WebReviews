@@ -4,6 +4,7 @@ from flask import (
 
 from .db import get_db
 
+import time
 
 bp = Blueprint('inverview', __name__, url_prefix='/interview')
 
@@ -17,6 +18,21 @@ def get_questions(id):
         questions[str(i+1)] = row[0].strip('\n')
         i += 1
     return questions
+
+@bp.route('<int:id>/submit', methods = ['POST'])
+def submit_interview(id):
+    db = get_db()
+    print(request.form)
+    videoFile = request.files['file']
+    timeStampsJson = request.form['timeStamps']
+    videoBlob = videoFile.read()
+    print(type(videoBlob))
+    print("REQUESTED 2 ")
+    db.execute("INSERT into video(recording, key_timestamps, interview_id) VALUES (?, ?, ?)", (videoBlob, timeStampsJson, id))
+    db.commit()
+    with open(str(time.time()) + '.webm', 'wb+') as destination:
+        destination.write(videoBlob)    
+    return {"status": "success"}
 
 @bp.route('/<int:id>', methods = ['GET'])
 def interview_page(id):

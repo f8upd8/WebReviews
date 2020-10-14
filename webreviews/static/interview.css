@@ -1,16 +1,85 @@
-body {
-    font: 14px "Open Sans", "Arial", sans-serif;
+.downBlock{
+    margin-top:20px;
+    display: block;
 }
 
-video {
-    margin-top: 2px;
-    border: 1px solid black;
+
+.panel{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.left {
+    padding-left: 5px;
+    width: 330px;
+    height: 100%;
+    border:5px groove;
+    border-color: #4CAF50;
+}
+
+.center {
+    padding-left: 5px;
+    width: 250px;
+    height: 100%;
+    border:5px groove;
+    border-color: #4CAF50;
+}
+
+.right {
+    padding-left: 5px;
+    width: 250px;
+    height: 100%;
+    border:5px groove;
+    border-color: #4CAF50;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.header a {
+    cursor: pointer;
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.header a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.header a.active {
+    background-color: #4CAF50;
+    color: white;}
+
+select.selecter
+{
+    width: 90%;
+    height: 25px;
+    font: 16px "Open Sans", "Arial", sans-serif;
+}
+
+.selec
+{
+    padding-top: 10px;
 }
 
 .button {
+    margin-top: 10px;
     cursor: pointer;
     display: block;
-    width: 160px;
+    width: 90%;
+    height: 30px;
     border: 1px solid black;
     font-size: 16px;
     text-align: center;
@@ -21,47 +90,56 @@ video {
     text-decoration: none;
 }
 
-h2 {
-    margin-bottom: 4px;
+body {
+    font: 14px "Open Sans", "Arial", sans-serif;
 }
 
-.left {
-    margin-right: 10px;
-    float: left;
-    width: 160px;
-    padding: 0px;
+video {
+    left: 50px;
+    right: 50px;
+    margin-top: 2px;
+    border: 1px solid black;
 }
 
-.right {
-    margin-left: 10px;
-    float: left;
-    width: 160px;
-    padding: 0px;
+.text{
+    font: 18px "Open Sans", "Arial", sans-serif;
 }
 
-.bottom {
-    clear: both;
-    padding-top: 10px;
+.h{
+    font: 21px "Open Sans", "Arial", sans-serif;
+    font-weight: bold;
 }
 
-#select{
-    width: 300px;
-    margin: 10px;
-}
-#selectAudio{
-    width: 300px;
-    margin: 10px;
+#nextButton {
+    width: 280px;
+    height: 50px;
 }
 
-.up {
-    display: inline-block;
+a.glo{
+    color: #4CAF50;
+    padding: 10px 20px;
+    width:300px;
+    text-decoration:none;
+    text-align:center;
+    margin:20px auto;
+    display: block;
+    background-image: linear-gradient(to left,transparent,transparent 50%,#4CAF50 50%,#4CAF50);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+    font: 400 18px tahoma;
+    border: 1px solid #4CAF50;
+}
+a.glo:hover {
+    background-position: 0 0;
+    color:#fff;
 }
 
-.block{
-    display: inline-block;
-}
 
-.blockGlobal {display: inline-block;}
+
+
+
+
 
 
 

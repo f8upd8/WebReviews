@@ -6,63 +6,65 @@
     <script src="{{ url_for('static', filename='audiolevel.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='audiolevel.css') }}">
     <script src="{{ url_for('static', filename='interview.js') }}"></script>
+    <script src="{{ url_for('static', filename='wait-promise.min.js') }}"></script>
     <script src="{{ url_for('static', filename='jquery-git.js') }}"></script>
+    <script src="{{ url_for('static', filename='vizual.js') }}"></script>
     <script type=”application/json” id="questions">
     {{ json | safe}}
     </script>
 {% endblock %}
 {% block content %}
-    <div class="blockGlobal">
 
-    <br>
-    <div class="up">
-    <div class="block">
-        <div class="text">Selected video:</div>
-    <select id="select"><option value="">Список устройств пуст.</option></select>
-        <div class="text">Selected audio:</div>
-    <select id="selectAudio"><option value="">Список устройств пуст.</option></select>
-    </div>
 
-        <div class="block">
-    <div class="level-monitor">
-        <div class="indicator"></div>
-    </div>
-    <div class="percent"></div>
-        </div>
-    </div>
+<div class="header">
+    <a class="active" href="#home">Домой</a>
+    <a href="#help">Помощь</a>
+    <a href="#contact">Контакты</a>
+    <a href="#about">О нас</a>
+</div>
 
-    <div class="down">
-    <div class="left">
-        <div id="startButton" class="button">Начать запись</div>
-        <div id="testButton" class="button">Тест</div>
-        <h2>Preview</h2>
-        <video id="preview" width="160" height="120" autoplay muted></video>
 
-    </div>
+<div id="welcome" class="tabcontent">
+    <a href="#" class="glo" onclick="openTab( 'stream')">Пройти интервью</a>
+</div>
 
-    <div class="right">
-        <div id="stopButton" class="button">
-            Стоп
-        </div>
-        <div id="downloadButton" class="button">
-            Скачать
-        </div>
 
-        <h2>Запись</h2>
+<div id="stream" class="tabcontent">
+<div class="downBlock">
+
+    <!-- Video block / Видео блок -->
+    <div class="left panel ">
+        <video id="preview" width="320" height="240" autoplay muted></video>
         <video id="recording" width="160" height="120" controls></video>
+        <h2 id="question" class="h" >Текущий вопрос:</h2>
+        <p id="testP" class="text">Здесь будет вопрос.</p>
+        <button  class="button" id="nextButton"  >Начать опрос</button >
+       <div class="text" data-action="time">Время: <span class="timer" data-content="time">0.0</span> сек.</div>
 
-        <div class="bottom">
-            <pre id="log"></pre>
+    </div>
+
+    <!-- Buttons / Кнопки -->
+    <div class="center panel ">
+        <div id="testButton" class="button">Тест</div>
+        <div id="stopButton" class="button">Стоп</div>
+        <a id="downloadButton" class="button">Скачать</a>
+    </div>
+
+    <!-- Setting / Настройка -->
+    <div class="right panel" >
+        <p id="option" class="h" >Настройка:</p>
+        <div class="text selec" >Selected video:</div>
+        <select id="select" class="selecter"><option value="">Список устройств пуст.</option></select>
+        <div class="text selec">Selected audio:</div>
+        <select id="selectAudio" class="selecter"><option value="">Список устройств пуст.</option></select>
+        <div class="microTestBlock">
+        <div class="level-monitor"><div class="indicator"></div></div>
+        <div class="percent"></div>
         </div>
     </div>
-    </div>
+
+</div>
+</div>
 
 
-
-    </div>
-
-    <div class="blockGlobal">
-        <p id="testP" >Вопрос:_________</p>
-        <button  class="button" id="nextButton" data-action="time" >Следующий вопрос <span class="timer" data-content="time">0.0</span></button >
-    </div>
 {% endblock %}
