@@ -3,7 +3,7 @@ from flask import (
 )
 
 from .db import get_db
-
+from . import vimeoclient
 import time
 
 bp = Blueprint('inverview', __name__, url_prefix='/interview')
@@ -22,16 +22,15 @@ def get_questions(id):
 @bp.route('<int:id>/submit', methods = ['POST'])
 def submit_interview(id):
     db = get_db()
-    print(request.form)
     videoFile = request.files['file']
     timeStampsJson = request.form['timeStamps']
     videoBlob = videoFile.read()
-    print(type(videoBlob))
-    print("REQUESTED 2 ")
     db.execute("INSERT into video(recording, key_timestamps, interview_id) VALUES (?, ?, ?)", (videoBlob, timeStampsJson, id))
     db.commit()
-    with open(str(time.time()) + '.webm', 'wb+') as destination:
-        destination.write(videoBlob)    
+    filename = str(time.time()) + '.webm'
+    with open(filename, 'wb+') as destination:
+        destination.write(videoBlob)
+    vimeoclient.upload(filename, filename, 'Upload Finished')
     return {"status": "success"}
 
 @bp.route('/<int:id>', methods = ['GET'])
